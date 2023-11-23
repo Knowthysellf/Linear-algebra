@@ -10,7 +10,7 @@ int main() {
     cin>>cols;
 
     // Allocate memory for the first matrix
-    int **matrix1 = (int **)malloc(rows * sizeof(int *));
+    int **matrix1 = (int **) malloc (rows * sizeof(int *));
     for (int i = 0; i < rows; ++i) {
         matrix1[i] = (int *)malloc(cols * sizeof(int));
     }
@@ -38,6 +38,65 @@ int main() {
     cout<<"Input for Second Matrix:\n\n";
     inputMatrix(matrix2, rows1, cols1);
 
+    //Allocate memory for the summation matrix 
+    int **sum=(int **)malloc(rows* sizeof(int *));
+    
+    for (int i=0;i<rows;i++){
+        sum[i]=(int *)malloc(cols* sizeof(int));
+    }
+
+    //alocate memory for the subtraction matrix
+    int **sub=(int **)malloc(rows* sizeof(int *));
+    
+    for (int i=0;i<rows;i++){
+        sub[i]=(int *)malloc(cols* sizeof(int));
+    }
+
+    //alocate memory for the multiplication matrix
+    int **mul=(int **)malloc(rows* sizeof(int *));
+    
+    for (int i=0;i<rows;i++){
+        sub[i]=(int *)malloc(cols1* sizeof(int));
+    }
+
+
+    int close;
+    while(1){
+        cout<<"\nPress 1 for addition\n";
+        cout<<"Press 2 for subtraction\n";
+        cout<<"Press 3 for multiplication\n";
+        cout<<"Press 0 for close\n";
+        cin>>close;
+        if(close==1){
+            if(rows==rows1 && cols==cols1){
+                addMatrices(matrix1 ,matrix2, sum, rows,cols);
+            }
+            else{
+                cout<<"Matrix addition can't possible";
+            }
+             printMatrix(sum ,rows,cols);
+            
+        }
+
+        if(close==2){
+            if(rows==rows1 && cols==cols1){
+                subMatrices(matrix1 ,matrix2,sub,rows,cols);
+            }
+            else{
+                cout<<"Matrix subtraction can't possible";
+            }
+            printMatrix(sub ,rows,cols);
+        }
+
+        if(close==3){
+            if(rows==cols1){
+                addMatrices(matrix1 ,matrix2,sub,rows,cols);
+            }
+            else{
+                cout<<"Matrix subtraction can't possible";
+            }
+        }
+    }
 
 }
 
