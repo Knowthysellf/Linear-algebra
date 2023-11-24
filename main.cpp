@@ -30,7 +30,7 @@ int main() {
     cin>>cols1;
     // Allocate memory for the second matrix
     int **matrix2 = (int **)malloc(rows1 * sizeof(int *));
-    for (int i = 0; i < rows; ++i) {
+    for (int i = 0; i < rows1; ++i) {
         matrix2[i] = (int *)malloc(cols1 * sizeof(int));
     }
 
@@ -70,31 +70,34 @@ int main() {
         if(close==1){
             if(rows==rows1 && cols==cols1){
                 addMatrices(matrix1 ,matrix2, sum, rows,cols);
+                printMatrix(sum ,rows,cols);
             }
             else{
                 cout<<"Matrix addition can't possible";
             }
-             printMatrix(sum ,rows,cols);
             
         }
 
         if(close==2){
             if(rows==rows1 && cols==cols1){
                 subMatrices(matrix1 ,matrix2,sub,rows,cols);
+                printMatrix(sub ,rows,cols);
             }
             else{
                 cout<<"Matrix subtraction can't possible";
             }
-            printMatrix(sub ,rows,cols);
+    
         }
 
         if(close==3){
-            if(rows==cols1){
-                addMatrices(matrix1 ,matrix2,sub,rows,cols);
+            if(cols==rows1){
+                mlpMatrices(matrix1 ,matrix2,mul ,rows,cols1, cols);
+                printMatrix(mul ,rows,cols1);
             }
             else{
-                cout<<"Matrix subtraction can't possible";
+                cout<<"Matrix multiplication can't possible";
             }
+            
         }
     }
 
