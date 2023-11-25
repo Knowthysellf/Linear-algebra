@@ -59,6 +59,13 @@ int main() {
         mul[i]=(double *)malloc(cols1* sizeof(double));
     }
 
+    //alocate memory for the inverse matrix
+    double **inverse=(double **) malloc(rows* sizeof(double *));
+
+    for(int i=0; i<rows ; i++){
+        inverse[i]=(double *)malloc(2*cols* sizeof(double));
+    }
+   
    
    
 
@@ -69,6 +76,7 @@ int main() {
         cout<<"Press 3 for multiplication\n";
         cout<<"Press 4 for row reduction\n";
         cout<<"Press 5 for determinante\n";
+        cout<<"Press 6 for inverse\n";
         cout<<"Press 0 for close\n";
         cin>>close;
         if(close==1){
@@ -104,13 +112,20 @@ int main() {
         }
        
         if(close==4){
+            
              rowReduction(matrix1,rows,cols);
         }
 
         if(close==5){
+            cout<<"Determinant of matrix 2\n";
             determinate(matrix2,rows);
         }
 
+        if(close==6){
+            int n;
+            cin>>n;
+            inverseMatrix(inverse,n);
+        }
         if( close==0){
             break;
         }

@@ -12,6 +12,7 @@ void inputMatrix(double **matrix, int rows, int cols) {
         }
     }
 }
+
 //print matrix 
 void printMatrix(double **matrix , int rows , int cols ){
     cout<<"Matrix elements:\n";
@@ -98,5 +99,21 @@ void rowReduction (double **matrix ,int rows, int cols){
     printMatrix(matrix,rows,cols);
 
 }
+
+void inverseMatrix (double **matrix, int n){
+  inputMatrix(matrix, n,n);
+    for (int i = 0; i < n; i++) {
+        for (int j = n; j < 2 * n; j++) {
+            if (i==j){
+                matrix[i][j]=1;
+            }
+            else 
+            matrix [i][j]=0;
+        }
+    }
+    rowReduction(matrix,n,n*2);
+   
+}
+
 
 #endif
