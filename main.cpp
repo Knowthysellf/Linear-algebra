@@ -59,7 +59,7 @@ int main() {
         sub[i]=(int *)malloc(cols1* sizeof(int));
     }
 
-    rowReduction(matrix1,rows,cols);
+   
    
 
     int close;
@@ -67,6 +67,7 @@ int main() {
         cout<<"\nPress 1 for addition\n";
         cout<<"Press 2 for subtraction\n";
         cout<<"Press 3 for multiplication\n";
+        cout<<"Press 4 for row reduction\n";
         cout<<"Press 0 for close\n";
         cin>>close;
         if(close==1){
@@ -100,6 +101,10 @@ int main() {
                 cout<<"Matrix multiplication can't possible";
             }
             
+        }
+       
+        if(close==4){
+             rowReduction(matrix1,rows,cols);
         }
     }
 

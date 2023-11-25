@@ -11,6 +11,15 @@ void inputMatrix(int **matrix, int rows, int cols) {
         }
     }
 }
+void printMatrix(int **matrix , int rows , int cols ){
+    cout<<"Matrix elements:\n";
+    for(int i=0;i<rows ;i++){
+        for( int j=0;j<cols ;j++){
+            cout<< matrix [i][j]<<"\t";
+        }
+        cout<<"\n";
+    }
+}
 
 void addMatrices( int **matrix1 ,int **matrix2, int **sum, int rows, int cols){
     for(int i=0; i<rows;i++){
@@ -18,6 +27,7 @@ void addMatrices( int **matrix1 ,int **matrix2, int **sum, int rows, int cols){
         sum[i][j] = matrix1[i][j]+ matrix2[i][j];
         }
     }
+     printMatrix(sum,rows,cols);
 }
 
 
@@ -28,6 +38,7 @@ void subMatrices( int **matrix1 ,int **matrix2, int **sub, int rows, int cols){
         sub[i][j]=matrix1[i][j]-matrix2[i][j];
         }
     }
+     printMatrix(sub,rows,cols);
 }
 
 void mlpMatrices(int **matrix1 ,int **matrix2, int **mul, int rows, int cols1 ,int cols ){
@@ -39,17 +50,10 @@ void mlpMatrices(int **matrix1 ,int **matrix2, int **mul, int rows, int cols1 ,i
             }
         }
     }
+     printMatrix(mul,rows,cols);
 }
 
-void printMatrix(int **matrix , int rows , int cols ){
-    cout<<"Matrix elements:\n";
-    for(int i=0;i<rows ;i++){
-        for( int j=0;j<cols ;j++){
-            cout<< matrix [i][j]<<"\t";
-        }
-        cout<<"\n";
-    }
-}
+ 
 
 void rowReduction (int **matrix ,int rows, int cols){
     for (int i=0;i<rows;i++){
