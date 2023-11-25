@@ -1,6 +1,7 @@
 #ifndef MY_HEADER_H
 #define MY_HEADER_H
 #include<iostream>
+#include<bits/stdc++.h>
 using namespace std;
 void inputMatrix(int **matrix, int rows, int cols) {
     cout<<"Enter elements of the matrix:\n";
@@ -48,6 +49,27 @@ void printMatrix(int **matrix , int rows , int cols ){
         }
         cout<<"\n";
     }
+}
+
+void rowReduction (int **matrix ,int rows, int cols){
+    for (int i=0;i<rows;i++){
+        double diagonalElement= matrix[i][i];
+        for(int j=0;j<cols;j++){
+            //make the daigonal element 1 
+            matrix[i][j]/=diagonalElement;
+        }
+        for (int k=0;k<rows;k++){
+            if(k!=i){
+                double factor= matrix[k][i];
+                for(int j=0;j<cols;j++){
+                    //make other element zero
+                    matrix[k][j]-=factor*matrix[i][j];
+                }
+            }
+        }
+    }
+    printMatrix(matrix,rows,cols);
+
 }
 
 #endif

@@ -59,6 +59,8 @@ int main() {
         sub[i]=(int *)malloc(cols1* sizeof(int));
     }
 
+    rowReduction(matrix1,rows,cols);
+   
 
     int close;
     while(1){
