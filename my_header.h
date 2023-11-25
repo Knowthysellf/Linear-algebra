@@ -3,7 +3,8 @@
 #include<iostream>
 #include<bits/stdc++.h>
 using namespace std;
-void inputMatrix(int **matrix, int rows, int cols) {
+//input matrix 
+void inputMatrix(double **matrix, int rows, int cols) {
     cout<<"Enter elements of the matrix:\n";
     for (int i = 0; i < rows; ++i) {
         for (int j = 0; j < cols; ++j) {
@@ -11,7 +12,8 @@ void inputMatrix(int **matrix, int rows, int cols) {
         }
     }
 }
-void printMatrix(int **matrix , int rows , int cols ){
+//print matrix 
+void printMatrix(double **matrix , int rows , int cols ){
     cout<<"Matrix elements:\n";
     for(int i=0;i<rows ;i++){
         for( int j=0;j<cols ;j++){
@@ -21,7 +23,9 @@ void printMatrix(int **matrix , int rows , int cols ){
     }
 }
 
-void addMatrices( int **matrix1 ,int **matrix2, int **sum, int rows, int cols){
+
+//matrix addition 
+void addMatrices( double **matrix1 ,double **matrix2, double **sum, int rows, int cols){
     for(int i=0; i<rows;i++){
         for (int j=0;j<cols;j++){
         sum[i][j] = matrix1[i][j]+ matrix2[i][j];
@@ -30,8 +34,8 @@ void addMatrices( int **matrix1 ,int **matrix2, int **sum, int rows, int cols){
      printMatrix(sum,rows,cols);
 }
 
-
-void subMatrices( int **matrix1 ,int **matrix2, int **sub, int rows, int cols){
+// matrix subtraction 
+void subMatrices( double **matrix1 ,double **matrix2, double **sub, int rows, int cols){
     for(int i=0; i<rows;i++){
 
         for (int j=0;j<cols;j++){
@@ -41,7 +45,8 @@ void subMatrices( int **matrix1 ,int **matrix2, int **sub, int rows, int cols){
      printMatrix(sub,rows,cols);
 }
 
-void mlpMatrices(int **matrix1 ,int **matrix2, int **mul, int rows, int cols1 ,int cols ){
+//matrics multiplication 
+void mlpMatrices(double **matrix1 ,double **matrix2, double **mul, int rows, int cols1 ,int cols ){
     for(int i=0;i<rows;i++){
         for(int j=0;j<cols1;j++){
             mul[i][j]=0;
@@ -50,12 +55,30 @@ void mlpMatrices(int **matrix1 ,int **matrix2, int **mul, int rows, int cols1 ,i
             }
         }
     }
-     printMatrix(mul,rows,cols);
+    printMatrix(mul ,rows,cols1);
 }
 
- 
+// determinate 
+double determinate (double ** matrix , int n){
+    for(int i=0;i<n;i++){
+        for(int j=i+1;j<n;j++){
+            double factor= matrix[j][i]/matrix[i][i];
+            for(int k=i;k<n;k++){
+                matrix[j][k]-=factor*matrix[i][k];
+            }
+        }  
+    }
 
-void rowReduction (int **matrix ,int rows, int cols){
+    double det =1.0;
+    for(int i=0;i<n;i++){
+        det*=  matrix[i][i];
+    }
+    cout<<det<<"\n";
+
+}
+
+// matrix row reduction 
+void rowReduction (double **matrix ,int rows, int cols){
     for (int i=0;i<rows;i++){
         double diagonalElement= matrix[i][i];
         for(int j=0;j<cols;j++){
