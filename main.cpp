@@ -121,11 +121,12 @@ int main() {
             determinate(matrix2,rows);
         }
 
-        if(close==6){
-            int n;
-            cin>>n;
-            inverseMatrix(inverse,n);
-        }
+        // if(close==6){
+        //     int n;
+        //     cin>>n;
+        //     inputMatrix(inverse,n,n);
+        //     inverseMatrix(inverse,n*2);
+        // }
         if( close==0){
             break;
         }

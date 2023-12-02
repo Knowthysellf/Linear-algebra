@@ -38,7 +38,6 @@ void addMatrices( double **matrix1 ,double **matrix2, double **sum, int rows, in
 // matrix subtraction 
 void subMatrices( double **matrix1 ,double **matrix2, double **sub, int rows, int cols){
     for(int i=0; i<rows;i++){
-
         for (int j=0;j<cols;j++){
         sub[i][j]=matrix1[i][j]-matrix2[i][j];
         }
@@ -100,20 +99,19 @@ void rowReduction (double **matrix ,int rows, int cols){
 
 }
 
-void inverseMatrix (double **matrix, int n){
-  inputMatrix(matrix, n,n);
-    for (int i = 0; i < n; i++) {
-        for (int j = n; j < 2 * n; j++) {
-            if (i==j){
-                matrix[i][j]=1;
-            }
-            else 
-            matrix [i][j]=0;
-        }
-    }
-    rowReduction(matrix,n,n*2);
-   
-}
+// void inverseMatrix (double **matrix, int n){
+//     for (int i = 0; i < n/2; i++) {
+//         for (int j = n; j <n; j++) {
+//             if (i==j){
+//                 matrix[i][j]=1;
+//             }
+//             else 
+//             matrix [i][j]=0;
+//         }
+//     }
+//     printMatrix(matrix, n,n);
+//     rowReduction(matrix,n,n);
+// }
 
 
 #endif
