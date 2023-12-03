@@ -99,19 +99,19 @@ void rowReduction (double **matrix ,int rows, int cols){
 
 }
 
-// void inverseMatrix (double **matrix, int n){
-//     for (int i = 0; i < n/2; i++) {
-//         for (int j = n; j <n; j++) {
-//             if (i==j){
-//                 matrix[i][j]=1;
-//             }
-//             else 
-//             matrix [i][j]=0;
-//         }
-//     }
-//     printMatrix(matrix, n,n);
-//     rowReduction(matrix,n,n);
-// }
+void inverseMatrix (double **matrix, int row, int col){
+    for (int i = 0; i < row; i++) {
+        for (int j = 0; j <row; j++) {
+            if (i==j){
+                matrix[i][j+row]= 1;
+            }
+            else 
+            matrix [i][j+row]=0;
+        }
+    }
+    printMatrix(matrix, row, col);
+    rowReduction(matrix,row,col);
+}
 
 
 #endif

@@ -59,16 +59,7 @@ int main() {
         mul[i]=(double *)malloc(cols1* sizeof(double));
     }
 
-    //alocate memory for the inverse matrix
-    double **inverse=(double **) malloc(rows* sizeof(double *));
-
-    for(int i=0; i<rows ; i++){
-        inverse[i]=(double *)malloc(2*cols* sizeof(double));
-    }
-   
-   
-   
-
+    
     int close;
     while(1){
         cout<<"\nPress 1 for addition\n";
@@ -121,12 +112,18 @@ int main() {
             determinate(matrix2,rows);
         }
 
-        // if(close==6){
-        //     int n;
-        //     cin>>n;
-        //     inputMatrix(inverse,n,n);
-        //     inverseMatrix(inverse,n*2);
-        // }
+        if(close==6){
+            int n;
+            cout<<"Input input matrix row size";
+            cin>>n;
+            //alocate memory for the inverse matrix
+            double **inverse = (double **)malloc(n * sizeof(double *));
+            for (int i = 0; i < n; i++) {
+                inverse[i] = (double *)malloc(2 * n * sizeof(double));
+            }
+            inputMatrix(inverse,n,n);
+            inverseMatrix(inverse,n,n*2);
+        }
         if( close==0){
             break;
         }
