@@ -85,7 +85,26 @@ void rowReduction (double **matrix ,int rows, int cols){
             //make the daigonal element 1 
             matrix[i][j]/=diagonalElement;
         }
-        for (int k=0;k<rows;k++){
+
+         for (int k = i + 1; k < rows; ++k) {
+            int factor = matrix[k][i];
+            for (int j = 0; j < cols; ++j) {
+                matrix[k][j] -= factor * matrix[i][j];
+            }
+        }
+        
+    }
+    printMatrix(matrix,rows,cols);
+
+}
+void SLE(double **matrix ,int rows, int cols){
+ for (int i=0;i<rows;i++){
+        double diagonalElement= matrix[i][i];
+        for(int j=0;j<cols;j++){
+            //make the daigonal element 1 
+            matrix[i][j]/=diagonalElement;
+        }
+for (int k=0;k<rows;k++){
             if(k!=i){
                 double factor= matrix[k][i];
                 for(int j=0;j<cols;j++){
@@ -93,12 +112,10 @@ void rowReduction (double **matrix ,int rows, int cols){
                     matrix[k][j]-=factor*matrix[i][j];
                 }
             }
-        }
+        }           
     }
     printMatrix(matrix,rows,cols);
-
 }
-
 void inverseMatrix (double **matrix, int row, int col){
     for (int i = 0; i < row; i++) {
         for (int j = 0; j <row; j++) {
@@ -110,7 +127,7 @@ void inverseMatrix (double **matrix, int row, int col){
         }
     }
     printMatrix(matrix, row, col);
-    rowReduction(matrix,row,col);
+    SLE(matrix,row,col);
 }
 
 
