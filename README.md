@@ -1,12 +1,20 @@
 # Linear-algebra
 --This code can take input matrix 
+
 --This code can add two matrix 
+
 --This code can sub two matrix 
+
 --This code can multiply two matrix 
+
 -- This code can give you row reducefrom
+
 --This code can give you determinante
+
 --This code can give you SLE
+
 --This code can give you inverse
+
 // This is a daynamic function so you have to follow something to use this
 
 1.Addition 
