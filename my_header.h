@@ -129,5 +129,14 @@ void inverseMatrix (double **matrix, int row, int col){
     SLE(matrix,row,col);
 }
 
+void transposeMatrix (double **matrix, double **trans, int rows, int cols){
+     for(int i=0; i<rows;i++){
+        for (int j=0;j<cols;j++){
+        trans[i][j]=matrix[j][i];
+        }
+    }
+     printMatrix(trans,rows,cols);
+}
+
 
 #endif

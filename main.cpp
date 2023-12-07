@@ -13,6 +13,7 @@ int main()
         cout << "Press 5 for determinante\n";
         cout << "Press 6 for SLE\n";
         cout << "Press 7 for inverse\n";
+        cout << "Press 8 for transpose\n";
         cout << "Press 0 for close\n";
         cin >> close;
         if (close == 1)
@@ -260,6 +261,33 @@ int main()
             }
             inputMatrix(inverse, n, n);
             inverseMatrix(inverse, n, n * 2);
+        }
+        if (close == 8)
+        {
+            // first matrix
+            int rows, cols;
+            cout << "For First Matrix\nEnter number of rows: ";
+            cin >> rows;
+            cout << "Enter number of columns: ";
+            cin >> cols;
+            // Allocate memory for the first matrix
+            double **matrix1 = (double **)malloc(rows * sizeof(double *));
+            for (int i = 0; i < rows; ++i)
+            {
+                matrix1[i] = (double *)malloc(cols * sizeof(double));
+            }
+
+            // Input elements into the first matrix
+            cout << "Input for First Matrix:\n\n";
+            inputMatrix(matrix1, rows, cols);
+            // alocate memory for the inverse matrix
+                double **transpose = (double **)malloc(rows * sizeof(double *));
+
+                for (int i = 0; i < rows; i++)
+                {
+                    transpose[i] = (double *)malloc(cols * sizeof(double));
+                }
+                transposeMatrix(matrix1,transpose,rows,cols);
         }
         if (close == 0)
         {
