@@ -68,7 +68,6 @@ double determinate (double ** matrix , int n){
             }
         }  
     }
-
     double det =1.0;
     for(int i=0;i<n;i++){
         det*=  matrix[i][i];
