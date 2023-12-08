@@ -1,5 +1,3 @@
-#ifndef MY_HEADER_H
-#define MY_HEADER_H
 #include<iostream>
 #include<bits/stdc++.h>
 using namespace std;
@@ -155,5 +153,3 @@ void transposeMatrix (double **matrix, double **trans, int rows, int cols){
      printMatrix(trans,rows,cols);
 }
 
-
-#endif
