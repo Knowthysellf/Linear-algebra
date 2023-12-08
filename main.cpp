@@ -145,7 +145,8 @@ int main()
             cout << "Enter number of columns: ";
             cin >> cols1;
             if (cols == rows1)
-            { // Allocate memory for the first matrix
+            { 
+                // Allocate memory for the first matrix
                 double **matrix1 = (double **)malloc(rows * sizeof(double *));
                 for (int i = 0; i < rows; ++i)
                 {
@@ -276,7 +277,6 @@ int main()
             }
 
             // Input elements into the first matrix
-            cout << "Input Matrix:\n\n";
             inputMatrix(matrix1, rows, cols);
             // alocate memory for the inverse matrix
                 double **transpose = (double **)malloc(rows * sizeof(double *));
