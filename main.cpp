@@ -43,7 +43,6 @@ int main()
                 }
 
                 // Input elements into the first matrix
-                cout << "Input for First Matrix:\n\n";
                 inputMatrix(matrix1, rows, cols);
                 // Allocate memory for the second matrix
                 double **matrix2 = (double **)malloc(rows1 * sizeof(double *));
@@ -53,7 +52,6 @@ int main()
                 }
 
                 // Input elements into the second matrix
-                cout << "Input for Second Matrix:\n\n";
                 inputMatrix(matrix2, rows1, cols1);
 
                 // Allocate memory for the summation matrix
@@ -68,24 +66,22 @@ int main()
             }
             else
             {
-                cout << "Matrix addition can't possible";
+                cout << "Matrix addition can't possible"<<endl;
             }
         }
 
         if (close == 2)
         { // first matrix
             int rows, cols;
-            cout << "For First Matrix\nEnter number of rows: ";
+            cout << "For Matrix\nEnter number of rows: ";
             cin >> rows;
             cout << "Enter number of columns: ";
             cin >> cols;
             // second matrix
             int rows1, cols1;
-
-            cout << "For Second Matrix:\n";
+            cout << "For Matrix:\n";
             cout << "Enter number of rows: ";
             cin >> rows1;
-
             cout << "Enter number of columns: ";
             cin >> cols1;
             if (rows == rows1 && cols == cols1)
@@ -99,7 +95,6 @@ int main()
                 }
 
                 // Input elements into the first matrix
-                cout << "Input for First Matrix:\n\n";
                 inputMatrix(matrix1, rows, cols);
                 // Allocate memory for the second matrix
                 double **matrix2 = (double **)malloc(rows1 * sizeof(double *));
@@ -109,7 +104,6 @@ int main()
                 }
 
                 // Input elements into the second matrix
-                cout << "Input for Second Matrix:\n\n";
                 inputMatrix(matrix2, rows1, cols1);
 
                 // Allocate memory for the summation matrix
@@ -138,14 +132,14 @@ int main()
         {
             // first matrix
             int rows, cols;
-            cout << "For First Matrix\nEnter number of rows: ";
+            cout << "For Matrix\nEnter number of rows: ";
             cin >> rows;
             cout << "Enter number of columns: ";
             cin >> cols;
             // second matrix
             int rows1, cols1;
 
-            cout << "For Second Matrix:\n";
+            cout << "For Matrix:\n";
             cout << "Enter number of rows: ";
             cin >> rows1;
             cout << "Enter number of columns: ";
@@ -159,7 +153,6 @@ int main()
                 }
 
                 // Input elements into the first matrix
-                cout << "Input for First Matrix:\n\n";
                 inputMatrix(matrix1, rows, cols);
                 // Allocate memory for the second matrix
                 double **matrix2 = (double **)malloc(rows1 * sizeof(double *));
@@ -176,7 +169,6 @@ int main()
                 }
 
                 // Input elements into the second matrix
-                cout << "Input for Second Matrix:\n\n";
                 inputMatrix(matrix2, rows1, cols1);
 
                 mlpMatrices(matrix1, matrix2, mul, rows, cols1, cols);
@@ -188,9 +180,10 @@ int main()
         }
 
         if (close == 4)
-        { // first matrix
+        { 
+            // matrix row and column take 
             int rows, cols;
-            cout << "For First Matrix\nEnter number of rows: ";
+            cout << "For Matrix\nEnter number of rows: ";
             cin >> rows;
             cout << "Enter number of columns: ";
             cin >> cols;
@@ -201,17 +194,17 @@ int main()
                 matrix1[i] = (double *)malloc(cols * sizeof(double));
             }
 
-            // Input elements into the first matrix
-            cout << "Input for First Matrix:\n\n";
+            // Input elements into the  matrix
             inputMatrix(matrix1, rows, cols);
+            // for row reduction 
             rowReduction(matrix1, rows, cols);
         }
 
         if (close == 5)
         {
-            // first matrix
+             // matrix row and column take 
             int rows, cols;
-            cout << "For First Matrix\nEnter number of rows: ";
+            cout << "For Matrix\nEnter number of rows: ";
             cin >> rows;
             cout << "Enter number of columns: ";
             cin >> cols;
@@ -223,16 +216,17 @@ int main()
             }
 
             // Input elements into the first matrix
-            cout << "Input for First Matrix:\n\n";
             inputMatrix(matrix1, rows, cols);
-            cout << "Determinant of matrix 2\n";
+
+            // Determinante of the matrix 
+            cout << "Determinant of matrix\n";
             determinate(matrix1, rows);
         }
         if (close == 6)
         {
-            // first matrix
+             // matrix row and column take 
             int rows, cols;
-            cout << "For First Matrix\nEnter number of rows: ";
+            cout << "For Matrix\nEnter number of rows: ";
             cin >> rows;
             cout << "Enter number of columns: ";
             cin >> cols;
@@ -244,14 +238,16 @@ int main()
             }
 
             // Input elements into the first matrix
-            cout << "Input for First Matrix:\n\n";
             inputMatrix(matrix1, rows, cols);
+            // System of Linear equation 
             SLE(matrix1,rows, cols);
         }
         if (close == 7)
-        {
+        {   
+             // matrix row and column take 
+             // Take one input for a square matrix 
             int n;
-            cout << "Input input matrix row size";
+            cout << "Input input matrix size";
             cin >> n;
             // alocate memory for the inverse matrix
             double **inverse = (double **)malloc(n * sizeof(double *));
@@ -260,13 +256,15 @@ int main()
                 inverse[i] = (double *)malloc(2 * n * sizeof(double));
             }
             inputMatrix(inverse, n, n);
+            // Use multplication 2 for using row reduction 
+            // using row reduction this inverse matrix is calculate 
             inverseMatrix(inverse, n, n * 2);
         }
         if (close == 8)
         {
             // first matrix
             int rows, cols;
-            cout << "For First Matrix\nEnter number of rows: ";
+            cout << "For Matrix\nEnter number of rows: ";
             cin >> rows;
             cout << "Enter number of columns: ";
             cin >> cols;
@@ -278,7 +276,7 @@ int main()
             }
 
             // Input elements into the first matrix
-            cout << "Input for First Matrix:\n\n";
+            cout << "Input Matrix:\n\n";
             inputMatrix(matrix1, rows, cols);
             // alocate memory for the inverse matrix
                 double **transpose = (double **)malloc(rows * sizeof(double *));

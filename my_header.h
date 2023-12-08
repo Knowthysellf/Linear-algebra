@@ -15,7 +15,6 @@ void inputMatrix(double **matrix, int rows, int cols) {
 
 //print matrix 
 void printMatrix(double **matrix , int rows , int cols ){
-    cout<<"Matrix elements:\n";
     for(int i=0;i<rows ;i++){
         for( int j=0;j<cols ;j++){
             cout<< matrix [i][j]<<"\t";
@@ -32,6 +31,7 @@ void addMatrices( double **matrix1 ,double **matrix2, double **sum, int rows, in
         sum[i][j] = matrix1[i][j]+ matrix2[i][j];
         }
     }
+    cout<<"Addition result of two matrix"<<endl;
      printMatrix(sum,rows,cols);
 }
 
@@ -42,6 +42,7 @@ void subMatrices( double **matrix1 ,double **matrix2, double **sub, int rows, in
         sub[i][j]=matrix1[i][j]-matrix2[i][j];
         }
     }
+     cout<<"Substraction result of two matrix"<<endl;
      printMatrix(sub,rows,cols);
 }
 
@@ -55,6 +56,7 @@ void mlpMatrices(double **matrix1 ,double **matrix2, double **mul, int rows, int
             }
         }
     }
+     cout<<"Multiplication result of two matrix"<<endl;
     printMatrix(mul ,rows,cols1);
 }
 
@@ -72,6 +74,7 @@ double determinate (double ** matrix , int n){
     for(int i=0;i<n;i++){
         det*=  matrix[i][i];
     }
+    cout<<"Determinant of the  matrix : ";
     cout<<det<<"\n";
 
 }
@@ -93,9 +96,12 @@ void rowReduction (double **matrix ,int rows, int cols){
         }
         
     }
+    cout<<"Matrix rowReduction result"<<endl;
     printMatrix(matrix,rows,cols);
 
 }
+
+// System of Linear Equation 
 void SLE(double **matrix ,int rows, int cols){
  for (int i=0;i<rows;i++){
         double diagonalElement= matrix[i][i];
@@ -114,7 +120,13 @@ for (int k=0;k<rows;k++){
         }           
     }
     printMatrix(matrix,rows,cols);
+    cout<< "SLE Result"<<endl;
+     for(int i=0;i<cols;i++){
+        cout<<matrix[i][cols-1];
+     }
 }
+
+//inverse matrix 
 void inverseMatrix (double **matrix, int row, int col){
     for (int i = 0; i < row; i++) {
         for (int j = 0; j <row; j++) {
@@ -125,16 +137,21 @@ void inverseMatrix (double **matrix, int row, int col){
             matrix [i][j+row]=0;
         }
     }
+    cout<< "Inverse Matrix for rowreduction:"<<endl;
     printMatrix(matrix, row, col);
+    cout<< "Inverse Matrix:"<<endl;
     SLE(matrix,row,col);
+    cout<<"If your given matrix don't be an identity matrix ,that means it is not possible to inverse"<<endl;
 }
 
+// transpose matrix 
 void transposeMatrix (double **matrix, double **trans, int rows, int cols){
      for(int i=0; i<rows;i++){
         for (int j=0;j<cols;j++){
         trans[i][j]=matrix[j][i];
         }
     }
+    cout<< "Transpose Matrix:"<<endl;
      printMatrix(trans,rows,cols);
 }
 
